@@ -46,7 +46,7 @@ def fetch(request, member_id):
     try:
         ud = UserData.objects.get(member_id=member_id)
     except UserData.DoesNotExist:
-        return HttpResponse('')
+        return HttpResponse('[]')
 
     next_shifts = map(shift_to_dict, ud.shifts.all())
     gs = ud.generic_shift
